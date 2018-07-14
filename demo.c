@@ -259,16 +259,28 @@ int main ()
   #endif
   
   printf("Let val be the value of { pp[0], pp[1], pp[2], pp[3] } \n");
-  printf("converted to unsigned int through pointer cating. \n");
-
+  printf("converted to unsigned int through pointer casting: \n\n");
+  
+  printf("  unsigned int * pint;         \n");
+  printf("  unsigned int val;            \n");
+  printf("  pint = (unsigned int*) pp;   \n");
+  printf("  val = *pint;                 \n\n");
+  
+  // pointer to unsgn. int
   unsigned int * pint;
-  int val;
+  unsigned int val;
   pint = (unsigned int*) pp;
   val = *pint;
 
   printf("val        = %10d (hex: %x) \n", val, val);
   printf("GBIT32(pp) = %10d (hex: %x) \n", GBIT32(pp),GBIT32(pp));
 
+  if( val == GBIT32(pp) )
+  {
+    printf("\nNumbers val and GBIT32(pp) are equal. This means that \n");
+    printf("GBIT32 macro is compatible with the internal representation \n");
+    printf("of integers on this machine.  \n");
+  }
   
   printf("\n END OF DEMONSTRATION. \n");
   
